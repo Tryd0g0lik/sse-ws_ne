@@ -7,13 +7,6 @@
 		// "target": "ES6",
 		"sourceMap": false,
 		"outDir": "./src/result",
-		// "src/serve",
-		// "allowSyntheticDefaultImports": true,
-		// "esModuleInterop": true,
-		// "noImplicitAny": true,
-		// "skipLibCheck": true,
-		// "strict": true,
-		// "strictNullChecks": false
 	},
 	"exclude": [
 		"node_modules",
