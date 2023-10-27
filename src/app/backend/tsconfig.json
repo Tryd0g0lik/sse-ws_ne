@@ -23,6 +23,6 @@
 	],
 	"files": [
 		"./src/serve/index.ts",
-		"./src/websockets/index.ts"
+		"src/wsServer/index.ts"
 	]
 }
