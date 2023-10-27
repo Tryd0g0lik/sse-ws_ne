@@ -29,7 +29,7 @@ const db = {
 	}
 };
 
-function wsServer(wss: any) {
+export default function (wss: any) {
 
 	// module.exports = firstDb;
 	return wss.on('connection', (ws: any, req: any) => {
@@ -184,4 +184,4 @@ function poster(elem: any) {
 // Server
 // https://discord.com/channels/@me/1067365554438017084/1151487583503790090
 
-module.exports = wsServer
+
