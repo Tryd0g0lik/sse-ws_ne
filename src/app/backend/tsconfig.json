@@ -22,6 +22,7 @@
 		"dist"
 	],
 	"files": [
-		"./src/serve/index.ts"
+		"./src/serve/index.ts",
+		"./src/websockets/index.ts"
 	]
 }
