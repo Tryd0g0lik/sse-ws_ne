@@ -19,7 +19,7 @@ const websockets = require('websockets');
 
 
 console.log('[websockets]: ', websockets);
-app.use(websockets(wss));
+websockets(wss);
 
 server.listen(7070, () => console.log("Server started"));
 
