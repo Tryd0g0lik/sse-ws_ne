@@ -1,3 +1,4 @@
+
 {
 	"extends": "../../../tsconfig", // Наследование https://www.typescriptlang.org/tsconfig#extends
 	"compilerOptions": {
