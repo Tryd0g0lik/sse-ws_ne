@@ -11,8 +11,8 @@ let url_: string | undefined = undefined;
 if (process.env.APP_BASE_URL_WS) {
 	url_ = process.env.APP_BASE_URL_WS
 } else {
-	url_ = "ws://localhost:7070"
 };
+// let url_ = "ws://localhost:7070"
 
 const body = document.getElementsByTagName('body') as HTMLCollectionOf<HTMLElement>;
 const chatInput = body[0].querySelector('.chattalks input') as HTMLElement;
