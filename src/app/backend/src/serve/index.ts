@@ -11,7 +11,7 @@ const WS = require('ws');
 const app = new Koa();
 const server = http.createServer(app.callback);
 const wss = new WS.Server({ server });
-const { wsServer: websockets } = require('websockets');
+const websockets = require('websockets');
 // app.use(async (ctx: any) => {
 // 	ctx.body = 'Hello World';
 // });
