@@ -1,10 +1,19 @@
+
+
 const { WSocket } = require('../../models/websockets');
 const { ChatSqreen } = require('../../models/chat');
 const { default: addPropertiesUser } = require('./addPropertiesUser');
 const { fun } = require('../../functions/forms/logins');
 const moduleFun = require('../index.ts');
 console.log('[getNewPost]: ', moduleFun);
-const url = "ws://localhost:7070"
+let url_: string | undefined = undefined;
+
+if (process.env.APP_BASE_URL_WS) {
+	url_ = process.env.APP_BASE_URL_WS
+} else {
+	url_ = "ws://localhost:7070"
+};
+
 const body = document.getElementsByTagName('body') as HTMLCollectionOf<HTMLElement>;
 const chatInput = body[0].querySelector('.chattalks input') as HTMLElement;
 let wsChat: any;
@@ -20,7 +29,7 @@ let thisIsMyId = '';
 function getNewLogin() {
 	return (e: any) => {
 		const req: string = e.data;
-		if (e.target.url !== url + "/login") return
+		if (e.target.url !== (url_ as any) + "/login") return
 		if (req.length > 2) {
 			const data = JSON.parse(e.data);
 			if (("login" in data) === false) return
@@ -70,8 +79,8 @@ chat.server = (elem: any) => {
 	if (wsChat === undefined
 		|| (wsChat
 			&& (wsChat.readyState === 0 || wsChat.readyState > 1))) {
-		console.log('/chat URL')
-		wsChat = new WSocket(url + "/chat");
+		console.log('/chat url_')
+		wsChat = new WSocket(url_ + "/chat");
 	}
 
 	let post = JSON.stringify(elem);

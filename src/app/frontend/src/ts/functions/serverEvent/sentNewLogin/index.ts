@@ -3,9 +3,17 @@
 const { WSocket } = require('../../../models/websockets');
 const { fun } = require("../../forms/logins");
 const { getNewLogin: getNewLoginPrefix } = require('../index.ts');
-const url = "ws://localhost:7070";
+let url: any = undefined;
+
 let ws: any;
 const body = document.getElementsByTagName('body') as HTMLCollectionOf<HTMLElement>;
+if (process.env.APP_BASE_URL_WS) {
+	url = process.env.APP_BASE_URL_WS
+} else {
+	url = "ws://localhost:7070"
+};
+
+
 /**
 		 * Handler для событий из формы регистрации логина.
 	 * Отправляем логин на сервер.
