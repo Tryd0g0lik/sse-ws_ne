@@ -1,4 +1,4 @@
-const WS = require('ws');
+
 
 let newClient = {};
 let postmane: any = undefined;
@@ -29,8 +29,8 @@ const db = {
 	}
 };
 
-function wsServer(elem: any) {
-	const wss = new WS.Server({ elem });
+function wsServer(wss: any) {
+
 	// module.exports = firstDb;
 	return wss.on('connection', (ws: any, req: any) => {
 		ws.on('message', (m: any) => {
