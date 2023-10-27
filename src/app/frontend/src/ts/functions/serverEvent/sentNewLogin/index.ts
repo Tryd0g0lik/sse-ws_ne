@@ -7,13 +7,14 @@ const { getNewLogin: getNewLoginPrefix } = require('../index.ts');
 
 let ws: any;
 const body = document.getElementsByTagName('body') as HTMLCollectionOf<HTMLElement>;
-let url: string | undefined = undefined;
+// let url: string | undefined = undefined;
 
-if (process.env.APP_BASE_URL_WS) {
-	url = process.env.APP_BASE_URL_WS
-} else {
-};
-// let url = "ws://localhost:7070"
+// if (process.env.APP_BASE_URL_WS) {
+// 	url = process.env.APP_BASE_URL_WS
+// } else {
+// 	url = "ws://localhost:7070"
+// };
+let url = "ws://localhost:7070"
 /**
 		 * Handler для событий из формы регистрации логина.
 	 * Отправляем логин на сервер.
