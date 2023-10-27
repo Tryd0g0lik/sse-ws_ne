@@ -38,10 +38,9 @@ const db  = {
 	}
 };
 
-console.log('[DB-file]: ', db);
-console.log('[DB-object]: ', Object(db))
-console.log('[DB-object]: ', Object.keys(db))
-
+app.use(async (ctx: any) => {
+	ctx.body = 'Hello World';
+});
 // module.exports = firstDb;
 wss.on('connection', (ws: any, req: any) => {
 	ws.on('message', (m: any) => {
