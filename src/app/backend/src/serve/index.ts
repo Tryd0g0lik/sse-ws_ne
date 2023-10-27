@@ -7,17 +7,42 @@ const Logger = require('koa-logger');
 const WS = require('ws');
 const { koaBody } = require('koa-body');
 const { v4 } = require('uuid');
-const db = require('./db/index.js');
 const app = new Koa();
 const server = http.createServer(app.callback);
 const wss = new WS.Server({ server });
 let newClient = {};
 let postmane: any = undefined;
 let url: string = '';
+
+const db  = {
+	logins: ([] as any[]), // [ { login: 'RRRR', id: '7ef88beb-37ef-4806-9a8b-6ac6632828df' } ]
+	posts: ([] as any[]),
+	handlers: ([] as any[]),
+
+	/**
+	 *
+	 * @param item For a For a SiteEvent
+	 */
+	adds(item: any) {
+		this.logins.push(item);
+		this.handlers.forEach((handler: any) => handler(item));
+	},
+
+	/**
+	 *
+	 * @param handler For a SiteEvent
+	 */
+	listener(handler: any) {
+		this.handlers.push(handler);
+
+	}
+};
+
 console.log('[DB-file]: ', db);
 console.log('[DB-object]: ', Object(db))
 console.log('[DB-object]: ', Object.keys(db))
 
+// module.exports = firstDb;
 wss.on('connection', (ws: any, req: any) => {
 	ws.on('message', (m: any) => {
 		url = req.url.slice(0,);
