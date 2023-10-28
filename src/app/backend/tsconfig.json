@@ -23,6 +23,6 @@
 	],
 	"files": [
 		"./src/serve/index.ts",
-		"src/wsServer/index.ts"
+		"src/serve/wsServer/index.ts"
 	]
 }

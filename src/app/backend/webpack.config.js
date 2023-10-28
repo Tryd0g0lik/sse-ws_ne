@@ -22,7 +22,7 @@ module.exports = {
 		new CopyPlugin({
 			patterns: [
 				{ from: 'src/result/src/app/backend/src/serve', to: 'backend/', },
-				{ from: 'src/result/src/app/backend/src/wsServer', to: 'backend/wsServer', },
+				{ from: 'src/result/src/app/backend/src/serve/wsServer', to: 'backend/wsServer', },
 			],
 		}),
 	],
