@@ -2,7 +2,10 @@
 // src\app\backend\src\serve\index.ts
 
 let postId = 0;
-const http = require('http'), Koa = require('koa'), json = require('koa-json'), cors = require('@koa/cors');
+const http = require('http');
+const Koa = require('koa');
+const json = require('koa-json');
+const cors = require('@koa/cors');
 const Logger = require('koa-logger');
 
 const { koaBody } = require('koa-body');
@@ -16,9 +19,6 @@ const { appWebsockets: wsServer } = require('./wsServer');
 // 	ctx.body = 'Hello World';
 // });
 
-
-
-console.log('[wsServer]: ', wsServer);
 wsServer(wss);
 
 server.listen(7070, () => console.log("Server started"));
