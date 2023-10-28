@@ -17,7 +17,7 @@ module.exports = {
 	mode: 'none',
 	target: ['web', 'browserslist'],
 	output: {
-		path: path.resolve(__dirname, '../../../dist/frontend'),
+		path: path.resolve(__dirname, '../../../dist'),
 		clean: true,
 		library: {
 			type: 'commonjs'
@@ -26,7 +26,7 @@ module.exports = {
 	},
 	devServer: {
 		static: {
-			directory: path.join(__dirname, '../../../dist/frontend'),
+			directory: path.join(__dirname, '../../../dist'),
 		},
 
 		watchFiles: [
