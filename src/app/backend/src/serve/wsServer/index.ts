@@ -1,9 +1,9 @@
-
+const { v4 } = require('uuid');
 
 let newClient = {};
 let postmane: any = undefined;
 let url: string = '';
-
+let postId = 0;
 
 const db = {
 	logins: ([] as any[]), // [ { login: 'RRRR', id: '7ef88beb-37ef-4806-9a8b-6ac6632828df' } ]
@@ -29,7 +29,7 @@ const db = {
 	}
 };
 
-function appWebsockets(wss: any) {
+function appWebsockets(wss: any, WS: any) {
 
 	// module.exports = firstDb;
 	return wss.on('connection', (ws: any, req: any) => {
@@ -59,10 +59,11 @@ function appWebsockets(wss: any) {
 						/** Template: {"users":[{"login":"< nickname >","id":"<
 						 * -user >"}], update:true} */
 						postmane = { users: db['logins'], update: true };
-						console.log('closed POSTMANE before POSTER: ', postmane);
-						poster(postmane);
 
-						console.log('closed LOGINS: ', db.logins);
+						console.log('[closed POSTMANE before POSTER]: ', postmane);
+						poster(postmane, wss, WS);
+
+						console.log('[closed LOGINS]: ', db.logins);
 					}
 				}
 			}
@@ -100,7 +101,8 @@ function appWebsockets(wss: any) {
 				console.log('Start load the page', db['posts']);
 				postmane = db['posts'].length != undefined && db['posts'].length > 0 ? { users: db['logins'], posts: db['posts'] } : { users: db['logins'] };
 
-				poster(postmane);
+				console.log('[wss POSTMANE]: ', postmane)
+				poster(postmane, wss, WS);
 				/**------------------------------------------------------- */
 			}
 			else if (url.length > 1 && url.indexOf('/chat') !== (-1)) {
@@ -137,7 +139,9 @@ function appWebsockets(wss: any) {
 				 */
 				postmane = { idPost: id, post: onePost }
 				db['posts'].push(postmane);
-				poster(postmane);
+
+				console.log('[wss POSTMANE]: ', postmane)
+				poster(postmane, wss, WS);
 				/**------------------------------------------------------- */
 			}
 		});
@@ -164,11 +168,15 @@ function makePostId(ind: number, database: any) {
  * При вызоые отбирает клиентов которые еще в сети
  * и проводит им рассылку просто логина или логина с сообщением.
  */
-function poster(elem: any) {
-	console.log('URL from FOALDER', url);
-	console.log('POSTMANE was TYPE: ', typeof elem);
+function poster(elem: any, wss: any, WS: any) {
+	console.log('[URL from FOALDER]: ', url);
+	console.log('[POSTMANE was TYPE]: ', typeof elem);
+
+	console.log('[elem.clients TYPE]: ', Object.keys(elem));
 	elem = JSON.stringify(elem);
-	console.log('POSTMANE wss.CLIENTS: ', Array.from(wss.clients).length);
+	console.log('[elem[users]]: ', elem['users']);
+	console.log('[POSTMANE elem.CLIENTS]: ', Array.from(wss.clients).length);
+
 	Array.from(wss.clients)
 		.filter((clients: any) => clients.readyState === WS.OPEN)
 		.forEach((clients: any) => {
