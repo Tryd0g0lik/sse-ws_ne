@@ -24,7 +24,7 @@
 		"build:dev": "yarn add package.json && npx tsc && yarn tsc && webpack",
 		"build:prod": "webpack --mode=production --node-env=production",
 		"watch": "webpack --watch",
-		"start": "node src/serve/index.js"
+		"start": "node src/index.js"
 	},
 	"dependencies": {
 		"package.json": "^2.0.1"
