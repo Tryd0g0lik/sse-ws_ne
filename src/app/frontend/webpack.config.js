@@ -18,7 +18,7 @@ module.exports = {
 	target: ['web', 'browserslist'],
 	output: {
 		path: path.resolve(__dirname, '../../../dist'),
-		clean: true,
+		// clean: true,
 		library: {
 			type: 'commonjs'
 		},

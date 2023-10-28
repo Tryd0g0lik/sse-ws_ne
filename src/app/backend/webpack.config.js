@@ -21,8 +21,8 @@ module.exports = {
 	plugins: [
 		new CopyPlugin({
 			patterns: [
-				{ from: 'src/result/src/app/backend/src/serve', to: './', },
-				{ from: 'src/result/src/app/backend/src/serve/wsServer', to: './wsServer', },
+				{ from: 'src/result/src/app/backend/src/serve', to: 'backend/', },
+				{ from: 'src/result/src/app/backend/src/serve/wsServer', to: 'backend/wsServer', },
 			],
 		}),
 	],
