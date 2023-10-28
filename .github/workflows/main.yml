@@ -33,7 +33,7 @@ jobs:
       #   run: cd src/app/frontend && yarn run build:dev
       - name: Install dependencies
         run: yarn install
-        
+
       - name: Build-frontend
         run: yarn workspace child-frontend-config run build:dev
 
@@ -42,15 +42,15 @@ jobs:
           mkdir -p dist/backend/db
           mkdir -p dist/backend/src/app/backend/src/serve
           mkdir -p dist/db/src/app/db/src/db
-            
+
       - name: Build-workspace-build:dev
         run: yarn workspace child-backend-config run build:dev
-              
+
       - name: Buil-subtree-creat-dist-backend
         run: |
           rsync -av --prune-empty-dirs --include '*.js' --exclude '*' dist/backend/src/app/backend/src/serve/ dist/backend
           rsync -av --prune-empty-dirs --include '*.map' --exclude '*' dist/backend/src/app/backend/src/serve/ dist/backend
-      
+
       - name: Move db index files
         run: |
           rsync -av --prune-empty-dirs --include '*.js' --exclude '*' dist/db/src/app/db/src/db/ dist/backend/db
@@ -58,14 +58,14 @@ jobs:
 
       - name: Setup Pages
         uses: actions/configure-pages@v2
-        
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
         with:
-          path: 'dist/frontend'
+          path: 'dist'
 
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v2
         with:
-          folder: dist/frontend
+          folder: dist
