@@ -16,4 +16,6 @@ const { appWebsockets: wsServer } = require('./wsServer');
 app.use(Logger());
 wsServer(wss, WS);
 
-server.listen(7070, () => console.log("Server started"));
+const PORT = process.env.PORT || 7070
+
+server.listen(PORT, () => console.log("Server started"));
