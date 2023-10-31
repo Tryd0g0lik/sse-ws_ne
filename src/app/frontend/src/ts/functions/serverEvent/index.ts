@@ -8,7 +8,7 @@ const moduleFun = require('../index.ts');
 const port = process.env.PORT || 7070;
 
 console.log('[serverEvent: wss://sse-v9vx.onrender.com/]: ', process.env.port);
-let url_ = `wss://sse-v9vx.onrender.com:${port}/`;
+let url_ = `wss://sse-v9vx.onrender.com/`;
 
 const body = document.getElementsByTagName('body') as HTMLCollectionOf<HTMLElement>;
 const chatInput = body[0].querySelector('.chattalks input') as HTMLElement;
