@@ -7,15 +7,6 @@ const { fun } = require('../../functions/forms/logins');
 const moduleFun = require('../index.ts');
 const port = process.env.PORT || 7070;
 
-console.log('[serverEvent: getNewPost]: ', moduleFun);
-// let url_: string | undefined = undefined;
-
-// if (process.env.APP_BASE_URL_WS) {
-// 	url_ = process.env.APP_BASE_URL_WS
-// } else {
-// 	url_ = "ws://localhost:7070"
-// };
-console.log('[process.env.APP_BASE_URL_WS]: ', process.env.APP_BASE_URL_WS);
 console.log('[serverEvent: wss://sse-v9vx.onrender.com/]: ', process.env.port);
 let url_ = `wss://sse-v9vx.onrender.com:${port}/`;
 

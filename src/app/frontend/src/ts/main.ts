@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	// debugger;
 
 	console.log('[Страница загрузилась]');
-	console.log(`[ENV:]: ]`, process.env);
+	console.log(`[ENV]: `, process.env);
 
 	(body[0].querySelector('.chattalks > div:last-of-type') as HTMLElement).setAttribute('style', "display:none;")
 	addLogin(body);
