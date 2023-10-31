@@ -1,3 +1,5 @@
+// src\app\frontend\src\ts\models\chat\index.ts
+
 // Chat model
 export class ChatSqreen {
 	user: any;
@@ -11,11 +13,15 @@ export class ChatSqreen {
 		this.messageHtml?.parentElement?.parentElement?.parentElement?.addEventListener('keypress', (e: any) => {
 			if ((e as KeyboardEvent).key === 'Enter') {
 				// debugger;
+				console.log('[src\app\frontend\src\ts\models\chat\index.ts]: ChatSqreen; Event name a Enter is pushing')
 				e.preventDefault();
 				let mess = (this.messageHtml as HTMLInputElement).value.slice(0,);
 				(this.messageHtml as HTMLInputElement).value = '';
 
 				const postOfChat = { message: mess, }
+				console.log('[src\app\frontend\src\ts\models\chat\index.ts]: ChatSqreen; Here is a "postOfChat" variable');
+				console.log('[src\app\frontend\src\ts\models\chat\index.ts]: ChatSqreen; Content masseg:', postOfChat);
+
 				this.server(postOfChat);
 				mess = '';
 			}

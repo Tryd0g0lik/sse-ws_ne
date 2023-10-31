@@ -5,6 +5,7 @@ const { ChatSqreen } = require('../../models/chat');
 const { default: addPropertiesUser } = require('./addPropertiesUser');
 const { fun } = require('../../functions/forms/logins');
 const moduleFun = require('../index.ts');
+const port = process.env.PORT || 7070;
 console.log('[serverEvent: getNewPost]: ', moduleFun);
 // let url_: string | undefined = undefined;
 
@@ -13,8 +14,9 @@ console.log('[serverEvent: getNewPost]: ', moduleFun);
 // } else {
 // 	url_ = "ws://localhost:7070"
 // };
+console.log('[process.env.APP_BASE_URL_WS]: ', process.env.APP_BASE_URL_WS);
 console.log('[serverEvent: wss://sse-v9vx.onrender.com/]: ');
-let url_ = "wss://sse-v9vx.onrender.com/";
+let url_ = `wss://sse-v9vx.onrender.com/`;
 
 const body = document.getElementsByTagName('body') as HTMLCollectionOf<HTMLElement>;
 const chatInput = body[0].querySelector('.chattalks input') as HTMLElement;
@@ -85,7 +87,7 @@ chat.server = (elem: any) => {
 		|| (wsChat
 			&& (wsChat.readyState === 0 || wsChat.readyState > 1))) {
 		console.log('[serverEvent: chat.server /chat url_]: ', url_);
-		wsChat = new WSocket(url_ + "/chat");
+		wsChat = new WSocket(url_ + ":" + port + "/chat");
 	}
 
 	let post = JSON.stringify(elem);

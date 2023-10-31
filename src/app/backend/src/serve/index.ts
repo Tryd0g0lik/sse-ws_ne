@@ -23,6 +23,6 @@ wsServer(wss, WS);
 
 
 console.log('[HOST]: ', process.env.HOST);
-console.log('[PORT]: ', process.env.POST);
+console.log('[PORT]: ', process.env.PORT);
 server.listen(PORT, () => console.log("Server started"));
 // https://www.youtube.com/watch?v=MZER_YiwA2w

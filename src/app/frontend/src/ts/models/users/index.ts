@@ -31,7 +31,7 @@ class UsersHtml extends Users {
 		(divLogin as HTMLElement).setAttribute('data-num', this.addId);
 
 		const img = document.createElement('img');
-		img.src = '/';
+		img.src = `https://tryd0g0lik.github.io/sse-ws_ne/`;
 		divImg.appendChild(img);
 
 		const span = document.createElement('span');

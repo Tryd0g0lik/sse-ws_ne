@@ -3,6 +3,7 @@ let newLogin: any[] = [];
 const body = document.getElementsByTagName('body') as HTMLCollectionOf<HTMLElement>;;
 const { WSocket } = require('../../../models/websockets');
 const { default: addPropertiesUser } = require('../../serverEvent/addPropertiesUser');
+const PORT = process.env.PORT || 7070;
 let wsLoadPage: any;
 const mapListUsers = new Map();
 
@@ -50,12 +51,12 @@ export const fun = {
 			|| (wsLoadPage
 				&& (wsLoadPage.readyState === 0 || wsLoadPage.readyState > 1))) {
 			console.log('/ URL');
-			wsLoadPage = new WSocket("wss://sse-v9vx.onrender.com/");
+			wsLoadPage = new WSocket(`wss://sse-v9vx.onrender.com:${PORT}/`);
 
 		}
 		// debugger;
 		wsLoadPage.onMessage = async (e: any) => {
-			if (e.target.url !== "ws://sse-v9vx.onrender.com/") return
+			if (e.target.url !== `wss://sse-v9vx.onrender.com/`) return
 			const data = JSON.parse(e.data);
 			if ('users' in data && data['users'].length < 1) data;
 			let postReSort: any[] = [];
