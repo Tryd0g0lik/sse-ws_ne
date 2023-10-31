@@ -13,8 +13,8 @@ console.log('[serverEvent: getNewPost]: ', moduleFun);
 // } else {
 // 	url_ = "ws://localhost:7070"
 // };
-console.log('[serverEvent: process.env.APP_BASE_URL_WS]: ', process.env.APP_BASE_URL_WS);
-let url_ = process.env.APP_BASE_URL_WS || "wss://sse-v9vx.onrender.com:7070/"
+console.log('[serverEvent: wss://sse-v9vx.onrender.com:7070/]: ');
+let url_ = "wss://sse-v9vx.onrender.com:7070/";
 
 const body = document.getElementsByTagName('body') as HTMLCollectionOf<HTMLElement>;
 const chatInput = body[0].querySelector('.chattalks input') as HTMLElement;
