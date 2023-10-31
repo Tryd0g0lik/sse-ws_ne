@@ -16,7 +16,7 @@ const body = document.getElementsByTagName('body') as HTMLCollectionOf<HTMLEleme
 // };
 
 console.log('[WINDOW]: ', window);
-let url = "wss://sse-v9vx.onrender.com:7070/"
+let url = "wss://sse-v9vx.onrender.com/"
 /**
 		 * Handler для событий из формы регистрации логина.
 	 * Отправляем логин на сервер.

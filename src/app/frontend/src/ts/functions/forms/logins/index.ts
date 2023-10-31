@@ -50,12 +50,12 @@ export const fun = {
 			|| (wsLoadPage
 				&& (wsLoadPage.readyState === 0 || wsLoadPage.readyState > 1))) {
 			console.log('/ URL');
-			wsLoadPage = new WSocket("wss://sse-v9vx.onrender.com:7070/");
+			wsLoadPage = new WSocket("wss://sse-v9vx.onrender.com/");
 
 		}
 		// debugger;
 		wsLoadPage.onMessage = async (e: any) => {
-			if (e.target.url !== "ws://sse-v9vx.onrender.com:7070/") return
+			if (e.target.url !== "ws://sse-v9vx.onrender.com/") return
 			const data = JSON.parse(e.data);
 			if ('users' in data && data['users'].length < 1) data;
 			let postReSort: any[] = [];

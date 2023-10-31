@@ -17,7 +17,7 @@ const PORT = process.env.PORT || 7070
 
 app.use(Logger());
 app.use((ctx: any) => {
-	ctx.body = `Request Body: ${JSON.stringify(ctx.request.body)}`;
+	ctx.body = `Request Body: ${JSON.stringify(ctx.request.body)} and  PORT: ${PORT}`;
 });
 wsServer(wss, WS);
 
