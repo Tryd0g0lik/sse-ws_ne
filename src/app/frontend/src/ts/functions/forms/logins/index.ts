@@ -1,4 +1,5 @@
 // src\app\frontend\src\ts\functions\forms\logins\index.ts
+
 let newLogin: any[] = [];
 const body = document.getElementsByTagName('body') as HTMLCollectionOf<HTMLElement>;;
 const { WSocket } = require('../../../models/websockets');

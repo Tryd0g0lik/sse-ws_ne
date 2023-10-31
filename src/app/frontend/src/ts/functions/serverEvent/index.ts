@@ -6,6 +6,7 @@ const { default: addPropertiesUser } = require('./addPropertiesUser');
 const { fun } = require('../../functions/forms/logins');
 const moduleFun = require('../index.ts');
 const port = process.env.PORT || 7070;
+
 console.log('[serverEvent: getNewPost]: ', moduleFun);
 // let url_: string | undefined = undefined;
 
@@ -15,8 +16,8 @@ console.log('[serverEvent: getNewPost]: ', moduleFun);
 // 	url_ = "ws://localhost:7070"
 // };
 console.log('[process.env.APP_BASE_URL_WS]: ', process.env.APP_BASE_URL_WS);
-console.log('[serverEvent: wss://sse-v9vx.onrender.com/]: ');
-let url_ = `wss://sse-v9vx.onrender.com/`;
+console.log('[serverEvent: wss://sse-v9vx.onrender.com/]: ', process.env.port);
+let url_ = `wss://sse-v9vx.onrender.com:${port}/`;
 
 const body = document.getElementsByTagName('body') as HTMLCollectionOf<HTMLElement>;
 const chatInput = body[0].querySelector('.chattalks input') as HTMLElement;
@@ -36,7 +37,7 @@ function getNewLogin() {
 
 		console.log('[serverEvent: getNewLogin3 - e.target.URL]: ', e.target.url);
 		console.log('[serverEvent: getNewLogin3 - URL_]: ', url_);
-		if (e.target.url !== (url_ as any) + "/login") return
+		if (e.target.url !== (url_ as any) + "login") return
 		if (req.length > 2) {
 			const data = JSON.parse(e.data);
 			if (("login" in data) === false) return
@@ -87,7 +88,7 @@ chat.server = (elem: any) => {
 		|| (wsChat
 			&& (wsChat.readyState === 0 || wsChat.readyState > 1))) {
 		console.log('[serverEvent: chat.server /chat url_]: ', url_);
-		wsChat = new WSocket(url_ + ":" + port + "/chat");
+		wsChat = new WSocket(url_ + "chat");
 	}
 
 	let post = JSON.stringify(elem);
