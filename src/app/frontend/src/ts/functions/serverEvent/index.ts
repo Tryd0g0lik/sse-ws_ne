@@ -13,7 +13,7 @@ console.log('[getNewPost]: ', moduleFun);
 // } else {
 // 	url_ = "ws://localhost:7070"
 // };
-let url_ = "ws://sse-v9vx.onrender.com:7070/"
+let url_ = "wss://sse-v9vx.onrender.com:7070/"
 
 const body = document.getElementsByTagName('body') as HTMLCollectionOf<HTMLElement>;
 const chatInput = body[0].querySelector('.chattalks input') as HTMLElement;

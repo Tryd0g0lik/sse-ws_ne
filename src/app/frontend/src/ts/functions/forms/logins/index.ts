@@ -50,7 +50,7 @@ export const fun = {
 			|| (wsLoadPage
 				&& (wsLoadPage.readyState === 0 || wsLoadPage.readyState > 1))) {
 			console.log('/ URL');
-			wsLoadPage = new WSocket("ws://sse-v9vx.onrender.com:7070/");
+			wsLoadPage = new WSocket("wss://sse-v9vx.onrender.com:7070/");
 
 		}
 		// debugger;
