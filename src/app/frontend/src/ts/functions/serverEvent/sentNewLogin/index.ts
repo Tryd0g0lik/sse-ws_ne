@@ -27,7 +27,7 @@ export default async function (e: any) {
 	if (ws === undefined
 		|| (ws
 			&& (ws.readyState === 0 || ws.readyState > 1))) {
-		console.log('/login URL')
+		console.log('serverEvent: default-async-function; new WSocket URL]: ', url);
 		ws = new WSocket(url + "/login");
 	}
 	ws.onMessage = getNewLoginPrefix();

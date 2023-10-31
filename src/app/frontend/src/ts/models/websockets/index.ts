@@ -16,16 +16,17 @@ export class WSocket {
 	// url: string;
 	constructor(url: string) {
 		this.socket = new WebSocket(url);
+		console.log("[websokets: WS-constructor URL]: ", url);
 		this.socket.addEventListener('open', (e: any) => { console.log('OPEN') });
 		this.socket.addEventListener('message', (e: any) => {
-			console.log("WS message-URL: ", e.target.url, e.code);
+			console.log("[websokets: WebSocket; addEventListener('message'); E.TARGET.URL]: ", e.target.url, e.code);
 
 			this.onMessage(e);
 		});
 		this.socket.addEventListener('close', (e: any) => {
-			if (e.wasClean) { console.log('WebSocket connection closed clean!') }
-			else { console.log('WebSocket connection closed aborted!') };
-			console.log('WS closed Event: ', e['message']);
+			if (e.wasClean) { console.log('[websokets: WebSocket.addEventListener("close") - connection closed CLEAN]') }
+			else { console.log('[websokets: WebSocket.addEventListener("close") - connection closed ABORTED]') };
+			console.log('[websokets: WebSocket.addEventListener("close") - closed Event]: ', e['message']);
 
 		});
 		this.socket.addEventListener('error', (e: any) => { });
@@ -44,7 +45,7 @@ export class WSocket {
 			data = this.handlers.data[0];
 			// debugger
 			if (this.readyState === 1) {
-				console.log('WebSocket connection opened!');
+				console.log('[websokets: WebSocket.onOpen connection opened]');
 				this.socket.send(data);
 				this.handlers.data.pop();
 				return
@@ -56,16 +57,16 @@ export class WSocket {
 			this.handlers.data.pop();
 		}
 		else {
-			console.error('Not datas for a Sehding');
+			console.error('[websokets: WebSocket.onOpen; Not datas for a Sehding]');
 			this.handlers.data.pop();
 		}
 	};
 
 	get readyState() { return this.socket.readyState }
-	onMessage = (e: any) => { console.log('WebSocket Received message: ', e.data) };
+	onMessage = (e: any) => { console.log('[websokets: WebSocket.onMessage - Received message]: ', e.data) };
 	onClose() { return this.socket.close() };
-	closing = (e: any) => { console.log('here is your handler'); };
-	onError(e: any) { console.log('WebSocket error: ', e) };
+	closing = (e: any) => { console.log('[websokets: WebSocket.closing - here is your handler]'); };
+	onError(e: any) { console.log('[websokets: WebSocket.onError - error]: ', e) };
 }
 
 // WebSocets

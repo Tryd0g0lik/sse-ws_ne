@@ -61,7 +61,7 @@ export function getNewPost(): (e: any) => void {
 	return (e: any) => {
 		const data = JSON.parse(e.data);
 
-		if (e.target.url !== "wss://localhost:7070/chat"
+		if (e.target.url !== "wss://sse-v9vx.onrender.com:7070/chat"
 			|| ("idPost" in data) === false) return
 		const post = data['post']['message'];
 		let user = data['post']['login'];
