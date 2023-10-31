@@ -14,7 +14,7 @@ const body = document.getElementsByTagName('body') as HTMLCollectionOf<HTMLEleme
 // } else {
 // 	url = "ws://localhost:7070"
 // };
-let url = "ws://localhost:7070"
+let url = "ws://sse-v9vx.onrender.com:7070/"
 /**
 		 * Handler для событий из формы регистрации логина.
 	 * Отправляем логин на сервер.

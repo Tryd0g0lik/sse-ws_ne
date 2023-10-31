@@ -17,5 +17,8 @@ app.use(Logger());
 wsServer(wss, WS);
 
 const PORT = process.env.PORT || 7070
-
+console.log('[HOST]: ', process.env.HOST);
+console.log('[PORT]: ', process.env.POST);
+console.log('[HOST + PORT]: ', process.env);
 server.listen(PORT, () => console.log("Server started"));
+// https://www.youtube.com/watch?v=MZER_YiwA2w

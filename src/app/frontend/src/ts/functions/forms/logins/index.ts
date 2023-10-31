@@ -44,17 +44,18 @@ export const fun = {
 	 */
 	loadPage(ind: string) {
 		/** Первичная закгрузка страницы **/
+		console.log('[Первичная закгрузка страницы]: ');
 		newLogin = [];
 		if (wsLoadPage === undefined
 			|| (wsLoadPage
 				&& (wsLoadPage.readyState === 0 || wsLoadPage.readyState > 1))) {
-			console.log('/ URL')
-			wsLoadPage = new WSocket("ws://localhost:7070/");
+			console.log('/ URL');
+			wsLoadPage = new WSocket("ws://sse-v9vx.onrender.com:7070/");
 
 		}
 		// debugger;
 		wsLoadPage.onMessage = async (e: any) => {
-			if (e.target.url !== "ws://localhost:7070/") return
+			if (e.target.url !== "ws://sse-v9vx.onrender.com:7070/") return
 			const data = JSON.parse(e.data);
 			if ('users' in data && data['users'].length < 1) data;
 			let postReSort: any[] = [];
