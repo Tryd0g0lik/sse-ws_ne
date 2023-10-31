@@ -4,6 +4,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const webpack = require('webpack');
+const Dotenv = require('dotenv-webpack');
 // const CopyPlugin = require('copy-webpack-plugin');
 // const isProduction = process.env.NODE_ENV == 'production';
 
@@ -41,6 +42,7 @@ module.exports = {
 		port: 8080
 	},
 	plugins: [
+		new Dotenv(),
 		new HtmlWebpackPlugin({
 			template: path.resolve(__dirname, 'src/index.html'),
 			minify: {
