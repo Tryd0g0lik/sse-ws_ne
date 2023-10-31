@@ -12,11 +12,12 @@ const server = http.createServer(app.callback());
 
 const wss = new WS.Server({ server });
 const { appWebsockets: wsServer } = require('./wsServer');
+const PORT = process.env.PORT || 7070
 
 app.use(Logger());
 wsServer(wss, WS);
 
-const PORT = process.env.PORT || 7070
+
 console.log('[HOST]: ', process.env.HOST);
 console.log('[PORT]: ', process.env.POST);
 server.listen(PORT, () => console.log("Server started"));

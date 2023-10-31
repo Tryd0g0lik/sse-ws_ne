@@ -14,6 +14,8 @@ const body = document.getElementsByTagName('body') as HTMLCollectionOf<HTMLEleme
 // } else {
 // 	url = "ws://localhost:7070"
 // };
+
+console.log('[WINDOW]: ', window);
 let url = "wss://sse-v9vx.onrender.com:7070/"
 /**
 		 * Handler для событий из формы регистрации логина.
