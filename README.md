@@ -1,5 +1,6 @@
 [![Build status](https://ci.appveyor.com/api/projects/status/m7rwpuj547x2gkcr/branch/master?svg=true)](https://ci.appveyor.com/project/Tryd0g0lik/sse-ws-ne/branch/master)
 
+Backend подключение примерно 50 сек.
  
 Правила сдачи:
 
@@ -24,10 +25,5 @@
 
 Важная детально: при отключении пользователя он должен удаляться из списка пользователей в левой части.
 
-Код рабочий на "github-pages". \
-GitHGub Pages подлючен к Render.com. \
-Подключение 50 сек. \
-При подключение к Render.com, на этапе загруски страницы колонка (левая) с пользователями - обнуляется. \
-Из диалогового окна html сообщений не убрал , просто для массовки.
----
+
 
